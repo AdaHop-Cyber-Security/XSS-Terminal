@@ -1,4 +1,4 @@
-XSS-Terminal | Pop's up a terminal via XSS for direct code input
+term.js | Pop's up a terminal via XSS for direct code input
 
 1. **Save term.js:**
 
