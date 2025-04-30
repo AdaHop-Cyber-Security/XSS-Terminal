@@ -4,7 +4,7 @@ Pop's up a terminal via XSS for direct code input
 1. **Save term.js:**
 
 2.  **Host the File:** Place `term.js` on a web server that you control and can access publicly (or at least from the network where the victim browser is). This could be:
-    *   A simple Python HTTP server (`python -m http.server 8000`) on your machine (if accessible).
+    *   A simple Python HTTP server (`python -m http.server 8000`) on your machine, if accessible.
     *   A dedicated web server (Nginx, Apache).
     *   A cloud hosting service or CDN.
     *   Services like `pastebin` (raw view), `gist` (raw view), or specialized payload hosting services (be cautious about terms of service).
@@ -37,9 +37,9 @@ If the vulnerable URL is `http://vulnerable-site.com/search?query=UserInput`, yo
 
 (Make sure the payload is properly URL-encoded if necessary).
 
-**Alternative: Fetch and Execute (If `<script src>` is blocked by CSP)**
+**Alternative: Fetch and Execute. If `<script src>` is blocked by CSP**
 
-If the site has a Content Security Policy (CSP) that prevents loading scripts from external domains (`script-src 'self'`), but *might* allow fetching data (`connect-src`), you could try fetching the script and executing it:
+If the site has a Content Security Policy that prevents loading scripts from external domains (`script-src 'self'`), but *might* allow fetching data (`connect-src`), you could try fetching the script and executing it:
 
 ```html
 <script>
@@ -50,6 +50,6 @@ If the site has a Content Security Policy (CSP) that prevents loading scripts fr
 </script>
 ```
 
-This payload is slightly larger but still much smaller than the full terminal code. It requires `connect-src` to allow fetching from your server and `script-src 'unsafe-eval'` (or similar) to allow `new Function()`.
+This payload is slightly larger but still much smaller than the full terminal code. It requires `connect-src` to allow fetching from your server and `script-src 'unsafe-eval'` or similar to allow `new Function()`.
 
 **In summary: The "Request path too long" error means your injected payload is too big for the URL. Solve this by hosting the main payload externally and injecting only a small loader script.** Remember to handle URL encoding correctly when crafting the final injection URL.
