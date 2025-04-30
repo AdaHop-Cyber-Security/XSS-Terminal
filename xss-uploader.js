@@ -1,3 +1,5 @@
+// just paste it. But don't be stupid now, aks for permission before you use this code. I am NOT responsible for your actions!
+
 <script>
 (function() {
     // --- Configuration (Attacker might need to adjust these) ---
