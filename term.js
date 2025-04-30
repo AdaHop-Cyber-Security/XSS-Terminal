@@ -1,7 +1,3 @@
-# this script opens a terminal with direct code access, delivered via xss.
-
-
-<script>
 (function() {
     // --- Configuration ---
     const terminalHeight = '400px';
@@ -207,4 +203,3 @@
     terminalInput.focus();
 
 })(); // Immediately invoke the function
-</script>
