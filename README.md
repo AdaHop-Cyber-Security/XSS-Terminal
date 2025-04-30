@@ -1,4 +1,4 @@
-# XSS-Terminal
+XSS-Terminal
 Pop's up a terminal via XSS for direct code input
 
 1. **Save term.js:**
@@ -49,7 +49,3 @@ If the site has a Content Security Policy that prevents loading scripts from ext
     .catch(err => console.error('Payload fetch/exec failed:', err));
 </script>
 ```
-
-This payload is slightly larger but still much smaller than the full terminal code. It requires `connect-src` to allow fetching from your server and `script-src 'unsafe-eval'` or similar to allow `new Function()`.
-
-**In summary: The "Request path too long" error means your injected payload is too big for the URL. Solve this by hosting the main payload externally and injecting only a small loader script.** Remember to handle URL encoding correctly when crafting the final injection URL.
