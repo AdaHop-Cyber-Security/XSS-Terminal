@@ -4,7 +4,7 @@ Pop's up a terminal via XSS for direct code input
 1. **Save term.js:**
 
 2.  **Host the File:** Place `term.js` on a web server that you control and can access publicly (or at least from the network where the victim browser is). This could be:
-    *   A simple Python HTTP server (`python -m http.server 8000`) on your machine, if accessible.
+    *   A simple Python HTTP server `python -m http.server 8000` on your machine, if accessible.
     *   A dedicated web server (Nginx, Apache).
     *   A cloud hosting service or CDN.
     *   Services like `pastebin` (raw view), `gist` (raw view), or specialized payload hosting services (be cautious about terms of service).
